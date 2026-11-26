@@ -1,0 +1,104 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield | Security Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">🛡 CyberShield</div>
+
+        <ul>
+            <li><a href="#" class="active">🏠 Dashboard</a></li>
+            <li><a href="{% url 'network_scanner' %}">🌐 Network Scanner</a></li>
+            <li><a href="#">🔎 OSINT</a></li>
+            <li><a href="#">🛡 Vulnerability Assessment</a></li>
+            <li><a href="#">📁 Scan History</a></li>
+            <li><a href="#">📊 Reports</a></li>
+            <li><a href="#">👥 Customers</a></li>
+            <li><a href="#">⚙ Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Security Dashboard</h1>
+                <p>Welcome back, Administrator.</p>
+            </div>
+
+            <div class="status">● System Online</div>
+        </header>
+
+        <!-- STATISTICS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <p>Total Scans</p>
+                <h2>0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Active Alerts</p>
+                <h2>0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Vulnerabilities</p>
+                <h2>0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Protected Assets</p>
+                <h2>0</h2>
+            </div>
+
+        </section>
+
+        <!-- SECURITY FEATURES -->
+        <h2 class="section-title">Security Tools</h2>
+
+        <section class="features">
+
+            <a href="{% url 'network_scanner' %}" style="text-decoration:none;color:inherit;">
+    <div class="feature-card">
+        <h3>🌐 Network Scanner</h3>
+        <p>Discover devices and examine open ports on authorized networks using Nmap.</p>
+        <p style="color:#38bdf8;margin-top:15px;">Open Scanner →</p>
+    </div>
+</a>
+
+            <div class="feature-card">
+                <h3>🔎 OSINT Investigation</h3>
+                <p>Collect and organize publicly available information about approved targets.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🛡 Vulnerability Assessment</h3>
+                <p>Identify and document potential security weaknesses in authorized systems.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📊 Security Reports</h3>
+                <p>Review previous scans and generate structured security reports.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

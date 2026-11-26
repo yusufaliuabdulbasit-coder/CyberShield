@@ -1,0 +1,107 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield | Network Scanner</title>
+    <style>
+        body {
+            background: #0b1120;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: #111827;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            box-sizing: border-box;
+            background: #0b1120;
+            border: 1px solid #334155;
+            border-radius: 7px;
+            color: white;
+        }
+
+        button {
+            padding: 13px 25px;
+            background: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0369a1;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #0b1120;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .error {
+            color: #f87171;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🛡 Network Scanner</h1>
+
+    <p>Scan authorised systems and identify open network ports.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Target IP Address</label>
+
+        <input
+            type="text"
+            name="target"
+            placeholder="Enter IP address e.g. 127.0.0.1"
+            value="{{ target|default:'' }}"
+            required
+        >
+
+        <button type="submit">Start Network Scan</button>
+    </form>
+
+    {% if error %}
+        <div class="result error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    {% if result %}
+        <div class="result">
+            <h3>Scan Results</h3>
+            {{ result }}
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
